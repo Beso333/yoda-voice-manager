@@ -32,20 +32,20 @@ def main():
     prefix = args.prefix.expanduser().resolve()
     binary = prefix/'bin/yoda-voice-manager'
     executable = str(binary).replace('\\', '\\\\').replace('"', '\\"').replace('`', '\\`').replace('$', '\\$')
-    desktop = ('[Desktop Entry]\nType=Application\nName=Yoda – hlasové ovládanie\n'
-               'Comment=Lokálne slovenské hlasové príkazy\n'
+    desktop = ('[Desktop Entry]\nType=Application\nName=Yoda – Voice Control\n'
+               'Comment=Local voice commands tailored to Slovak\n'
                f'Exec="{executable}"\nIcon=audio-input-microphone-symbolic\n'
                'Terminal=false\nCategories=Utility;Accessibility;\nStartupNotify=true\n')
     save_file(binary, (ROOT/'yoda-voice-manager').read_bytes(), True)
     save_file(prefix/f'share/applications/{APP_ID}.desktop', desktop.encode())
-    save_file(prefix/'share/doc/yoda/NAPOVEDA.txt', (ROOT/'NAPOVEDA.txt').read_bytes())
+    save_file(prefix/'share/doc/yoda/HELP.txt', (ROOT/'HELP.txt').read_bytes())
     config = args.config_home.expanduser().resolve()/'voxtype/config.toml'
     if not config.exists():
         save_file(config, (ROOT/'voxtype.example.toml').read_bytes())
     else:
         print('Preserved existing configuration:', config)
     if args.desktop_dir:
-        save_file(args.desktop_dir.expanduser().resolve()/'Yoda-hlasove-ovladanie.desktop', desktop.encode(), True)
+        save_file(args.desktop_dir.expanduser().resolve()/'Yoda-Voice-Control.desktop', desktop.encode(), True)
     print('Done. Install/check dependencies separately before launching Yoda.')
 
 

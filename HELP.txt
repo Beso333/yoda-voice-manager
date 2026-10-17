@@ -1,0 +1,97 @@
+YODA – VOICE CONTROL
+English help for the Ubuntu/GNOME application
+
+LANGUAGE
+
+Yoda is tailored to Slovak. Its interface, recognized voice commands and
+Lili spoken confirmations are Slovak. This help is written in English.
+Speak the Slovak phrases listed below; English descriptions explain their
+meaning and are not recognized commands.
+
+GETTING STARTED
+
+1. Open Yoda manually from the application menu or desktop shortcut.
+2. Wait for PRIPRAVENÝ (Ready).
+3. Hold Right Ctrl and say one Slovak command.
+4. Release Right Ctrl. Yoda transcribes locally and executes an allowed command.
+
+Voxtype runs only while Yoda is open. Closing the window stops voice input
+and any spoken confirmation in progress.
+
+ALLOWED COMMANDS — SAY THE SLOVAK PHRASES
+
+Open Terminal:    "otvor terminál" or "spusti terminál"
+Open Files:       "otvor súbory" or "spusti súbory"
+Open Codex:       "otvor codex" or "otvor chatgpt"
+Open OpenCode:    "otvor opencode" or "otvor open code"
+Volume up:        "zosilni zvuk" or "hlasnejšie"
+Volume down:      "stíš zvuk" or "tichšie"
+Mute:             "vypni zvuk" or "stlmiť zvuk"
+Unmute:           "zapni zvuk" or "obnov zvuk"
+Lock the session: "zamkni počítač" or "zamkni obrazovku"
+Clear the text:   "zruš" or "storno"
+
+Volume up/down changes the level by 5 percentage points. Volume up is
+capped at 100%. Unmute removes the mute flag. Locking locks the current
+user session.
+
+You may append "prosím" (please) to an action command, for example:
+"otvor terminál prosím".
+
+Say one command at a time. Matching ignores case, accents and ordinary
+punctuation. Yoda does not guess similar commands or execute arbitrary text.
+"otvor terminál a otvor súbory" (open Terminal and Files) is not allowed.
+
+PANEL STATES
+
+PRIPRAVENÝ — Ready: waiting for Right Ctrl.
+POČÚVAM — Listening: recording while Right Ctrl is held; cyan indicator.
+PREPISUJEM — Transcribing: processing locally; amber rotating arc.
+VYKONÁVAM — Executing: running an allowed command; green indicator.
+HOVORÍM — Speaking: playing a short Lili confirmation.
+SKÚS ZNOVA — Try again: unknown command or error; details appear below.
+
+The recognized text and action confirmation remain visible. Starting the
+next recording clears the previous text. Drag the top of the panel to move
+it. Close it with the close button or Alt+F4.
+
+CORRECTING TEXT AND USING LILI
+
+If the transcription is wrong, click the text field, change it to an allowed
+Slovak phrase and press Enter. Enter can also repeat the displayed command.
+"zruš" or "storno" clears the field; it does not undo an executed action.
+
+The "Hlasový výstup" (Voice output) switch controls short Lili confirmations.
+Lili is local text-to-speech, not a speech-recognition model. Turning this
+switch off changes neither system volume nor recognition availability.
+Starting another recording interrupts Lili so it does not speak into the mic.
+
+If new text arrives while another command is running, it stays visible.
+After that command finishes, press Enter to execute the new text.
+
+TROUBLESHOOTING
+
+Right Ctrl does nothing:
+- Make sure Yoda is open and ready.
+- Use Right Ctrl, not Left Ctrl, and hold it for the entire phrase.
+- If voice input reports an error, close and reopen Yoda.
+- If the message explicitly requests a new login, log out of Ubuntu and back in.
+
+Wrong or unknown transcription:
+- Repeat one short allowed phrase clearly.
+- Alternatively, edit the text manually and press Enter.
+
+Lili is silent:
+- Check the voice-output switch, system volume and mute setting.
+- Desktop commands can still work without spoken confirmations.
+
+Transcription is taking longer:
+- Wait for processing to finish before starting another recording.
+- Time depends on recording length and the laptop's current workload.
+
+Voxtype diagnostic log:
+$XDG_RUNTIME_DIR/yoda-voxtype.log
+Usually: /run/user/<UID>/yoda-voxtype.log
+
+Recognition and Lili both run locally. Simple commands need no cloud API.
+The example setup uses the multilingual small model with language set to sk.
