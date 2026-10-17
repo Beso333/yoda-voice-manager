@@ -30,3 +30,9 @@ The publication copy additionally replaces user-specific paths with configurable
 - Recognition can be wrong. Unknown phrases remain editable and are never guessed into another command.
 - A zero command/launcher exit status is not proof that another application completed its own internal work.
 - Unexpected Voxtype exit currently requires closing/reopening Yoda.
+
+## Complete Ubuntu installer
+
+The self-extracting `.run` contains six source/configuration files and verifies its embedded payload before extracting. The build is reproducible. Extraction was compared byte-for-byte with source, a corrupted payload was rejected, and dry-run performed no installation. Eleven installer tests passed, covering fresh/reused Voxtype, optional voice/shortcut, declined consent, checksum/cache behavior, backups/symlinks and unsupported platform rejection. The 17 application tests also passed after adding the optional private Voxtype configuration path.
+
+Actual upstream download endpoints returned HTTP 200 for the pinned Voxtype package and Whisper/Lili model files; the small Lili JSON/model-card files were downloaded and their hashes matched. No apt, pip, sudo, group or service changes were performed on the development laptop. A full clean-machine installation remains unverified.

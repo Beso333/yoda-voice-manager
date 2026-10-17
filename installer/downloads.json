@@ -1,0 +1,23 @@
+{
+  "voxtype_deb": {
+    "url": "https://github.com/peteonrails/voxtype/releases/download/v1.1.1/voxtype_1.1.1-1_amd64.deb",
+    "sha256": "1d4767ca7bd7e4745b0a066febd7b4b81ba8af7546385c664ce2efb0fe57ed3c"
+  },
+  "whisper_small": {
+    "url": "https://huggingface.co/ggerganov/whisper.cpp/resolve/5359861c739e955e79d9a303bcbc70fb988958b1/ggml-small.bin",
+    "sha256": "1be3a9b2063867b937e64e2ec7483364a79917e157fa98c5d94b5c1fffea987b"
+  },
+  "lili_model": {
+    "url": "https://huggingface.co/rhasspy/piper-voices/resolve/c10ece1aade47bb51c153c893d14e5bf8e5b7117/sk/sk_SK/lili/medium/sk_SK-lili-medium.onnx",
+    "sha256": "d8e21603e0165252849efe0bcb3fbffd1b3193c36bd1f556e1106911e8015526"
+  },
+  "lili_config": {
+    "url": "https://huggingface.co/rhasspy/piper-voices/resolve/c10ece1aade47bb51c153c893d14e5bf8e5b7117/sk/sk_SK/lili/medium/sk_SK-lili-medium.onnx.json",
+    "sha256": "b7c474eba411913f9feb65b9da322463e8698e7b200d2b757f6e684802951333"
+  },
+  "lili_model_card": {
+    "url": "https://huggingface.co/rhasspy/piper-voices/resolve/c10ece1aade47bb51c153c893d14e5bf8e5b7117/sk/sk_SK/lili/medium/MODEL_CARD",
+    "sha256": "d1df98a436e1b22f6bd1792a14fb3592dd816ee250ee3ff9ff3be62cd39c59b0"
+  },
+  "piper_version": "1.8.0"
+}

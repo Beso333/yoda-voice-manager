@@ -23,7 +23,7 @@ Examples: `otvor terminál` (open Terminal), `otvor súbory` (open Files), `hlas
 
 Tested on Ubuntu 26.04.1, GNOME 50.1/Wayland, GTK 4.22 and Voxtype 1.1.1. Other distributions and versions have not been verified.
 
-- System Python 3, PyGObject, Cairo and GTK 4. On Ubuntu, the relevant packages are `python3-gi`, `python3-cairo` and `gir1.2-gtk-4.0`.
+- System Python 3, PyGObject, Cairo and GTK 4. On Ubuntu, the relevant packages are `python3-gi`, `python3-cairo`, `python3-gi-cairo` and `gir1.2-gtk-4.0`.
 - [Voxtype](https://voxtype.io), the locally installed multilingual Whisper `small` model and a working microphone.
 - Voxtype access to keyboards through evdev. The tested setup uses membership in the `input` group, which grants broad access to input devices. Configure this deliberately for your distribution, then log out and back in if group membership changes.
 - Optional spoken output: local Piper, `sk_SK-lili-medium.onnx` with its companion JSON configuration, and `mpv`.
@@ -31,7 +31,19 @@ Tested on Ubuntu 26.04.1, GNOME 50.1/Wayland, GTK 4.22 and Voxtype 1.1.1. Other 
 
 Recognition models, voice models and third-party binaries are not bundled. Obtain them from their maintainers with their applicable license terms.
 
-## Installation
+## Complete Ubuntu installer
+
+For a new Ubuntu GNOME PC, download **[Yoda-Ubuntu-Setup.run](https://raw.githubusercontent.com/Beso333/yoda-voice-manager/main/dist/Yoda-Ubuntu-Setup.run)** and run it as your regular desktop user:
+
+```bash
+bash Yoda-Ubuntu-Setup.run
+```
+
+This single file contains Yoda and its setup program. After confirmation, it installs Ubuntu dependencies, Voxtype, the Slovak Whisper model and optional Piper/Lili, creates the launchers and configures keyboard access. Internet and sudo privileges are required. Supports Ubuntu 24.04+ on 64-bit Intel/AMD; native testing has been on Ubuntu 26.04 only. You may need to log out and back in afterward.
+
+The installer uses its own Voxtype configuration and preserves your global configuration. It does not start Yoda automatically or enable login autostart. **[Full setup instructions and options](docs/INSTALL-UBUNTU.md).**
+
+## File-only installation
 
 Install and verify the dependencies above first. The project installer downloads nothing, uses no sudo, changes no groups and enables no services.
 
@@ -72,7 +84,7 @@ YODA_LILI_MODEL=/path/to/sk_SK-lili-medium.onnx \
 ~/.local/bin/yoda-voice-manager
 ```
 
-`YODA_VOXTYPE` overrides the default `/usr/bin/voxtype` path. For application-menu launches, set these variables in your desktop session or customize the local desktop entry. Voice output is off by default on a fresh installation.
+`YODA_VOXTYPE` overrides the default `/usr/bin/voxtype` path. `YODA_VOXTYPE_CONFIG` selects a separate Voxtype configuration file; the complete installer sets this to `~/.config/yoda/voxtype.toml`. For application-menu launches, set these variables in your desktop session or customize the local desktop entry. Voice output is off by default on a fresh installation.
 
 ## Tests and diagnostics
 

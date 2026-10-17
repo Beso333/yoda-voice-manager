@@ -37,6 +37,7 @@ TRANSCRIPT_FILE = STATE_FILE.parent / "yoda-transcript.txt"
 YODA_CONFIG = STATE_FILE.parent / "yoda-config.toml"
 CONFIG_HOME = Path(os.environ.get("XDG_CONFIG_HOME", str(Path.home() / ".config")))
 VOICE_STATE = CONFIG_HOME / "yoda" / "output-state"
+VOXTYPE_CONFIG = Path(os.environ.get("YODA_VOXTYPE_CONFIG", str(CONFIG_HOME / "voxtype/config.toml")))
 PIPER = Path(os.environ.get("YODA_PIPER", shutil.which("piper") or str(Path.home() / ".local/bin/piper")))
 LILI = Path(os.environ.get("YODA_LILI_MODEL", str(Path.home() / ".local/share/yoda/voices/sk_SK-lili-medium.onnx")))
 MPV = "/usr/bin/mpv"
@@ -360,7 +361,7 @@ class YodaWindow(Gtk.ApplicationWindow):
         try:
             STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
             TRANSCRIPT_FILE.unlink(missing_ok=True)
-            config = (CONFIG_HOME / "voxtype/config.toml").read_text(encoding="utf-8")
+            config = VOXTYPE_CONFIG.read_text(encoding="utf-8")
             config = re.sub(r'(?ms)(^\[output\]\n)(.*?)(?=^\[|\Z)',
                             lambda match: match[1] + re.sub(r'^mode\s*=.*$', 'mode = "file"', match[2], flags=re.M), config)
             config = re.sub(r'(?ms)(^\[whisper\]\n)(.*?)(?=^\[|\Z)',
