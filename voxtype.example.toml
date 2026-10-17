@@ -1,0 +1,34 @@
+state_file = "auto"
+
+[hotkey]
+key = "RIGHTCTRL"
+modifiers = []
+enabled = true
+mode = "push_to_talk"
+
+[audio]
+device = "default"
+sample_rate = 16000
+max_duration_secs = 60
+
+[whisper]
+model = "small"
+language = "sk"
+translate = false
+threads = 4
+context_window_optimization = true
+
+[output]
+mode = "file"
+file_path = "/tmp/yoda-standalone-transcript.txt"
+file_mode = "overwrite"
+fallback_to_clipboard = false
+auto_submit = false
+
+[output.notification]
+on_recording_start = false
+on_recording_stop = false
+on_transcription = false
+
+[osd]
+enabled = false

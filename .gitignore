@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*.log
+*.backup-*
+*.before-*
+.venv/
+.env
+*.onnx
+*.onnx.json
+*.bin

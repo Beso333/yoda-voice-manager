@@ -1,0 +1,90 @@
+YODA – HLASOVÉ OVLÁDANIE
+Nápoveda pre Ubuntu notebook
+
+AKO ZAČAŤ
+
+1. Otvor „Yoda – hlasové ovládanie“ odkazom na ploche.
+2. Počkaj na stav PRIPRAVENÝ.
+3. Podrž pravý Ctrl a povedz jeden príkaz.
+4. Pusti pravý Ctrl. Yoda zvuk lokálne prepíše a vykoná povolený príkaz.
+
+Voxtype funguje iba počas otvorenej Yody. Zatvorením okna sa hlasový
+vstup aj prebiehajúci hlasový výstup ukončia.
+
+POVOLENÉ PRÍKAZY
+
+Terminál:          „otvor terminál“ alebo „spusti terminál“
+Súbory:            „otvor súbory“ alebo „spusti súbory“
+Codex:             „otvor codex“ alebo „otvor chatgpt“
+OpenCode:          „otvor opencode“ alebo „otvor open code“
+Zvýšenie hlasitosti: „zosilni zvuk“ alebo „hlasnejšie“
+Zníženie hlasitosti: „stíš zvuk“ alebo „tichšie“
+Stlmenie zvuku:    „vypni zvuk“ alebo „stlmiť zvuk“
+Obnovenie zvuku:   „zapni zvuk“ alebo „obnov zvuk“
+Zamknutie:         „zamkni počítač“ alebo „zamkni obrazovku“
+Zrušenie textu:    „zruš“ alebo „storno“
+
+Zvýšenie a zníženie hlasitosti mení úroveň o 5 percentuálnych bodov.
+Zvýšenie má limit 100 %. Obnovenie zvuku zruší stlmenie.
+Zamknutie počítača zamkne tvoju aktuálnu reláciu.
+
+Na koniec vykonávacieho príkazu môžeš pridať „prosím“, napríklad:
+„otvor terminál prosím“.
+
+Hovor vždy jeden príkaz. Veľkosť písmen, diakritika a bežná interpunkcia
+pri porovnávaní nerozhodujú. Yoda neodhaduje podobné príkazy ani nespúšťa
+ľubovoľný text. Fráza „otvor terminál a otvor súbory“ nie je povolená.
+
+ČO ZOBRAZUJE PANEL
+
+PRIPRAVENÝ: čaká na pravý Ctrl.
+POČÚVAM: nahráva, kým držíš pravý Ctrl; tyrkysová farba.
+PREPISUJEM: spracúva nahrávku lokálne; jantárový oblúk.
+VYKONÁVAM: vykonáva povolený príkaz; zelená farba.
+HOVORÍM: prehráva krátke potvrdenie hlasom Lili.
+SKÚS ZNOVA: príkaz nepozná alebo nastala chyba; podrobnosti sú pod textom.
+
+Rozpoznaný text aj potvrdenie zostávajú zobrazené. Pri ďalšom nahrávaní
+sa starý text vyčistí. Okno presunieš potiahnutím hornej časti panelu.
+Zavrieš ho krížikom alebo klávesmi Alt+F4.
+
+OPRAVA TEXTU A HLAS LILI
+
+Ak sa text prepíše nesprávne, klikni do textového poľa, oprav ho na
+povolenú frázu a stlač Enter. Enter môžeš použiť aj na opätovné vykonanie
+zobrazeného príkazu. „Zruš“ alebo „storno“ vymaže text; už vykonanú akciu
+nevracia späť.
+
+Prepínač „Hlasový výstup“ zapína alebo vypína krátke potvrdenia Lili.
+Lili je lokálny hlasový výstup. Neprepočítava ani nerozpoznáva tvoju reč.
+Vypnutie prepínača nemení hlasitosť systému ani funkčnosť rozpoznávania.
+Začatie nového nahrávania preruší Lili, aby nehovorila do mikrofónu.
+
+Ak príde nový text počas vykonávania iného príkazu, zostane zobrazený.
+Po dokončení predchádzajúcej akcie ho spustíš klávesom Enter.
+
+KEĎ NIEČO NEFUNGUJE
+
+Pravý Ctrl nereaguje:
+- Skontroluj, že je Yoda otvorená a pripravená.
+- Použi pravý Ctrl, nie ľavý, a drž ho počas celej vety.
+- Ak je zobrazená chyba hlasového vstupu, zavri Yodu a znovu ju otvor.
+- Ak hlásenie výslovne žiada odhlásenie, odhlás sa z Ubuntu a prihlás sa.
+
+Nesprávny alebo neznámy prepis:
+- Zopakuj krátku povolenú frázu pokojne a zreteľne.
+- Alebo oprav text ručne a stlač Enter.
+
+Lili nehovorí:
+- Skontroluj prepínač hlasového výstupu, hlasitosť a stlmenie systému.
+- Príkazy môžu fungovať aj bez hlasového potvrdenia.
+
+Prepis trvá dlhšie:
+- Počkaj na dokončenie; ďalšie nahrávanie začni až po spracovaní.
+- Čas závisí od dĺžky nahrávky a aktuálneho zaťaženia notebooku.
+
+Pri chybe Voxtype je diagnostický záznam tu:
+$XDG_RUNTIME_DIR/yoda-voxtype.log (zvyčajne /run/user/<UID>/yoda-voxtype.log)
+
+Rozpoznávanie aj hlas Lili bežia na notebooku. Jednoduché príkazy
+nepotrebujú cloudové API. Rozpoznávanie používa model small s jazykom sk.
